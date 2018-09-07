@@ -26,6 +26,14 @@ const begin = () => {
                 type: 'input',
                 name: 'id',
                 message: 'What is the ID of the product you would like to purchase?',
+                validate: (value) => {
+                    if (value > res.length) {
+                        log(`\r\nSorry, not an ID`);
+                    } else {
+                        return true;
+                        
+                    }
+                }
             },
             {
                 type: 'input',
@@ -39,6 +47,8 @@ const begin = () => {
             //log(howMuchToBuy);
             let grandTotal = parseFloat(((res[whatToBuy].price) * howMuchToBuy).toFixed(2));
             log(grandTotal);
+
+            
 
             // check to see if quantity is sufficient
             if(res[whatToBuy].stock_quantity >= howMuchToBuy) {
