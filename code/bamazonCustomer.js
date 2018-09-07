@@ -27,12 +27,7 @@ const begin = () => {
                 name: 'id',
                 message: 'What is the ID of the product you would like to purchase?',
                 validate: (value) => {
-                    if (value > res.length) {
-                        log(`\r\nSorry, not an ID`);
-                    } else {
-                        return true;
-                        
-                    }
+                    if (value > res.length) {log(`\r\nSorry, not an ID`);} else {return true;}
                 }
             },
             {
