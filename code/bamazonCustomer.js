@@ -17,6 +17,7 @@ const begin = () => {
 
         log(`WELCOME TO BAMAZON\r\n---------------------------`);
 
+
         for(var i = 0; i < res.length; i++){
             log(`ID: ${res[i].item_id} | Product: ${res[i].product_name} | Price: ${res[i].price} | Stock Quantity: ${res[i].stock_quantity}`);
         }
@@ -30,20 +31,23 @@ const begin = () => {
                     if (value > res.length) {log(`\r\nSorry, not an ID`);} else {return true;}
                 }
             },
-            {
-                type: 'input',
-                name: 'qty',
-                message: 'How would much would like to purchase?',
-            }
-        ]).then(answer => {
-            let whatToBuy = (answer.id)-1;
-            //log(whatToBuy);
-            let howMuchToBuy = parseInt(answer.qty);
-            //log(howMuchToBuy);
-            let grandTotal = parseFloat(((res[whatToBuy].price) * howMuchToBuy).toFixed(2));
-            log(grandTotal);
-
             
+            {
+                
+                    type: 'input',
+                    name: 'qty',
+                    message: 'How would much would like to purchase?',
+                    
+            }
+        
+        ]).then(answer => {
+
+            let whatToBuy = (answer.id)-1;      // which ID the user chose
+            //log(whatToBuy);
+            let howMuchToBuy = parseInt(answer.qty);    // the amount the user would like to purchase
+            //log(howMuchToBuy);
+            let grandTotal = parseFloat(((res[whatToBuy].price) * howMuchToBuy).toFixed(2));    // multiplies the amount youre buying with the price
+            //log(grandTotal);
 
             // check to see if quantity is sufficient
             if(res[whatToBuy].stock_quantity >= howMuchToBuy) {
@@ -52,11 +56,42 @@ const begin = () => {
                 {stock_quantity: (res[whatToBuy].stock_quantity - howMuchToBuy)},
                 {item_id: answer.id}
                 ], function(err, res){
+                    
                     if(err) throw err;
                     log(`Success! Your total is $ ${grandTotal.toFixed(2)}. Your item(s) will be shipped to you in 3-5 business days.`);
+                    rePrompt();
                 });
-            }
+            } else {
+                log(`Sorry! Not enough in stock. Please try again later.\r\n-----------------------`);
+                begin();   
+            } 
         })
+        
+    })
+
+}
+
+const rePrompt = () => {
+    inq.prompt([{
+        type: 'list',
+        name: 'add',
+        message: 'Would you like to purchase another item?',
+        choices: ['Yes', 'No']
+    }]).then(answer => {
+        switch (answer.add) {
+            case 'Yes':
+                begin();
+                break
+            case 'No':
+                log(`Please Come Back Soon`);
+                con.end();
+                break
+            default:
+                log(`Goodbye`);
+                con.end();
+                break;
+            
+        }
     })
 }
 begin();
