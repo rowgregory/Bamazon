@@ -1,6 +1,7 @@
 const inq = require('inquirer');
 const sql = require('mysql');
 const log = console.log;
+const chalk = require('chalk');
 
 const con = sql.createConnection({
     host: 'localhost',
@@ -58,7 +59,7 @@ const begin = () => {
                 ], function(err, res){
                     
                     if(err) throw err;
-                    log(`Success! Your total is $ ${grandTotal.toFixed(2)}. Your item(s) will be shipped to you in 3-5 business days.`);
+                    log(chalk.green.bold(`Success! Your total is $ ${grandTotal.toFixed(2)}. Your item(s) will be shipped to you in 3-5 business days.`));
                     rePrompt();
                 });
             } else {
