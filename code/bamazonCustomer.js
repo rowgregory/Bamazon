@@ -32,15 +32,11 @@ const begin = () => {
                     if (value > res.length) {log(`\r\nSorry, not an ID`);} else {return true;}
                 }
             },
-            
             {
-                
-                    type: 'input',
-                    name: 'qty',
-                    message: 'How would much would like to purchase?',
-                    
+                type: 'input',
+                name: 'qty',
+                message: 'How would much would like to purchase?',        
             }
-        
         ]).then(answer => {
 
             let whatToBuy = (answer.id)-1;      // which ID the user chose
@@ -53,9 +49,9 @@ const begin = () => {
             // check to see if quantity is sufficient
             if(res[whatToBuy].stock_quantity >= howMuchToBuy) {
                 // after purchase, updates quantity in products
-                con.query("UPDATE products SET ? WHERE ?", [
-                {stock_quantity: (res[whatToBuy].stock_quantity - howMuchToBuy)},
-                {item_id: answer.id}
+                con.query("UPDATE products SET stock_quantity =  WHERE ?", [
+                // {stock_quantity: (res[whatToBuy].stock_quantity - howMuchToBuy)},
+                // {item_id: answer.id}
                 ], function(err, res){
                     
                     if(err) throw err;
@@ -67,9 +63,7 @@ const begin = () => {
                 begin();   
             } 
         })
-        
     })
-
 }
 
 const rePrompt = () => {
@@ -90,8 +84,7 @@ const rePrompt = () => {
             default:
                 log(`Goodbye`);
                 con.end();
-                break;
-            
+                break; 
         }
     })
 }
