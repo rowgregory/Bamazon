@@ -21,20 +21,21 @@ Bamazon is an Amazon-like storefront where users can purchase an item which then
     * However, if there is not enough of the product in stock, it will tell the user to try again later and returns to view all               inventory.
     
 2. 'managerCustomer.js'
-   * Starts with a menu:
-     * View All Inventory
-     * View Low Inventory
-     * Add to Inventory
-     * Add New Product
+  * Starts with a menu:
+    * View All Inventory
+    * View Low Inventory
+    * Add to Inventory
+    * Add New Product
      
-    * If the manager selects `View All Inventory`, a complete list of the inventory is displayed with details.
-    * If the manager selects `View Low Inventory`, a list of the products with less than five items in its stock quantity column.
-    * If the manager selects `Add to Inventory`, it allows the manager to select a product and add inventory.
-    * If the manager selects `Add New Product`, it allows the manager to add a new product to the store.
+   * If the manager selects `View All Inventory`, a complete list of the inventory is displayed with details.
+   * If the manager selects `View Low Inventory`, a list of the products with less than five items in its stock quantity column.
+   * If the manager selects `Add to Inventory`, it allows the manager to select a product and add inventory.
+   * If the manager selects `Add New Product`, it allows the manager to add a new product to the store.
      
 ## Demo Videos
 
  * bamazonCustomer.js (https://youtu.be/4rlSLSu-vhA)
+ * bamazonManager.js (https://youtu.be/nFAOAp5m2jk)
  
 ## Technologies Used
 
