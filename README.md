@@ -1,27 +1,17 @@
-# Project Title
+# Bamazon
 
 Bamazon is an Amazon-like storefront where users can purchase an item which then depletes the stock inventory from the MYSQL database.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+ * Clone repository
+ * Run NPM install
+ * Run command depending which mode you woule like to be on"
+   * Customer - 'node customerBamazon.js'
+   * Manager - 'node managerBamazon.js'
+ * Run 'ctrl + c' to exit each mode
 
-### Prerequisites
-
-Need Node.js
-MYSQL Workbench
-
-
-## Getting Started
-
-Clone repository
-Run NPM install
-Run command depending which mode you woule like to be on"
-  * Customer - 'node customerBamazon.js'
-  * Manager - 'node managerBamazon.js'
-Run 'ctrl + c' to exit each mode
-
-### What each JavaScript Does
+## JavaScript files
 
 1. 'bamazonCustomer.js'
   * Prints the products to the store.
@@ -42,18 +32,32 @@ Run 'ctrl + c' to exit each mode
     * If the manager selects `Add to Inventory`, it allows the manager to select a product and add inventory.
     * If the manager selects `Add New Product`, it allows the manager to add a new product to the store.
      
+## Demo Videos
 
+ * bamazonCustomer.js (https://youtu.be/4rlSLSu-vhA)
+ 
+## Technologies Used
+
+ * Node.js
+ * JavaScript
+ * Inquire NPM Package (https://www.npmjs.com/package/inquirer)
+ * MYSQL NPM Package (https://www.npmjs.com/package/mysql)
+ * Figlet NPM Package (https://www.npmjs.com/package/figlet)
+ * Chalk NPM Package(https://www.npmjs.com/package/chalk)
+
+## Prerequisites
+
+ - Node.js - Download the latest version of Node https://nodejs.org/en/
+ - Create a MYSQL database called 'Bamazon', reference schema.sql
 
 ## Built With
 
-* Node.js
-* JavaScript
-* MySQL Workbench
-* Terminal/Gitbash
+ * MySQL Workbench
+ * Terminal/Gitbash
 
 ## Authors
 
-* **Gregory Row** - *Initial work* - [rowgregory](https://github.com/rowgregory)
+ * **Gregory Row** - *Initial work* - [rowgregory](https://github.com/rowgregory)
 
 ## License
 
