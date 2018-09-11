@@ -1,7 +1,9 @@
-const inq = require('inquirer');
-const sql = require('mysql');
-const log = console.log;
+const inq   = require('inquirer');
+const sql   = require('mysql');
+const fig   = require('figlet');
 const chalk = require('chalk');
+const log   = console.log;
+
 
 const con = sql.createConnection({
     host: 'localhost',
@@ -11,12 +13,30 @@ const con = sql.createConnection({
     database: 'Bamazon'
 })
 
+fig.text('   BAMAZON', {
+    font: 'block',
+  }, function (err, data) {
+  
+    if (err) {
+      console.log('Something went wrong...');
+      console.dir(err);
+      return;
+    }
+    log(data);
+  
+  
+    begin();
+
+});
+
 const begin = () => {
+
+    
     
     con.query(`SELECT * FROM products`, (err, res) => {
         if (err) throw err;
 
-        log(`WELCOME TO BAMAZON\r\n---------------------------`);
+        
 
 
         for(var i = 0; i < res.length; i++){
@@ -49,9 +69,9 @@ const begin = () => {
             // check to see if quantity is sufficient
             if(res[whatToBuy].stock_quantity >= howMuchToBuy) {
                 // after purchase, updates quantity in products
-                con.query("UPDATE products SET stock_quantity =  WHERE ?", [
-                // {stock_quantity: (res[whatToBuy].stock_quantity - howMuchToBuy)},
-                // {item_id: answer.id}
+                con.query("UPDATE products SET ? WHERE ?", [
+                {stock_quantity: (res[whatToBuy].stock_quantity - howMuchToBuy)},
+                {item_id: answer.id}
                 ], function(err, res){
                     
                     if(err) throw err;
@@ -88,4 +108,4 @@ const rePrompt = () => {
         }
     })
 }
-begin();
+

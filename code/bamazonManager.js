@@ -1,6 +1,7 @@
-const inq = require('inquirer');
-const sql = require('mysql');
-const log = console.log;
+const inq   = require('inquirer');
+const sql   = require('mysql');
+const log   = console.log;
+const Table = require('cli-table-redemption');
 
 const con = sql.createConnection({
     host: 'localhost',

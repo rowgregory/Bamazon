@@ -5,6 +5,8 @@
   "main": "bamazonCustomer.js",
   "dependencies": {
     "chalk": "^2.4.1",
+    "cli-table-redemption": "^1.0.1",
+    "figlet": "^1.2.0",
     "inquirer": "^6.2.0",
     "mysql": "^2.16.0"
   },
@@ -13,5 +15,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
