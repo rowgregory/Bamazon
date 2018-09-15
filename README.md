@@ -20,7 +20,7 @@ Bamazon is an Amazon-like storefront where users can purchase an item which then
     * If there is sufficient amounf of the product in stock, it will return the toal for that purchase.
     * However, if there is not enough of the product in stock, it will tell the user to try again later and returns to view all               inventory.
     
-2. 'managerCustomer.js'
+2. 'bamazonManager.js'
   * Starts with a menu:
     * View All Inventory
     * View Low Inventory
